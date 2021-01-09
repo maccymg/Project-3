@@ -7,8 +7,7 @@ const teamSchema = new mongoose.Schema({
   defenders: [{ type: mongoose.Schema.ObjectId, ref: 'Player', required: true  }],
   midfielders: [{ type: mongoose.Schema.ObjectId, ref: 'Player', required: true  }],
   attackers: [{ type: mongoose.Schema.ObjectId, ref: 'Player', required: true  }],
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true  },
 })
 
 export default mongoose.model('Team', teamSchema)
-
-// owner: { type: mongoose.Schema.ObjectId, ref: 'User', required: true  },

@@ -33,10 +33,23 @@ async function teamCreate(req, res, next) {
   }
 }
 
+async function teamDelete(req, res, next) {
+  const { id } = req.params
+  try {
+    const teamToDelete = await Team.findById(id)
+    if (!teamToDelete) throw new Error(notFound)
+    await teamToDelete.remove()
+    return res.sendStatus(204)
+  } catch (err) {
+    next(err)
+  }
+}
+
 
 
 export default {
   index: teamIndex,
   show: teamShow,
   create: teamCreate,
+  delete: teamDelete,
 }

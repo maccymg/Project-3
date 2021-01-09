@@ -19,6 +19,7 @@ router.route('/teams')
 
 router.route('/teams/:id')
   .get(teams.show)
+  .delete(secureRoute, teams.delete)
 
 router.route('/users')
   .get(users.index)
