@@ -21,6 +21,12 @@ router.route('/teams/:id')
   .get(teams.show)
   .delete(secureRoute, teams.delete)
 
+router.route('/teams/:id/comments')
+  .post(secureRoute, teams.commentCreate)
+
+router.route('/teams/:id/comments/:commentId')
+  .delete(secureRoute, teams.commentDelete)
+
 router.route('/users')
   .get(users.index)
 
