@@ -8,6 +8,7 @@
   "type": "module",
   "dependencies": {
     "bcrypt": "^5.0.0",
+    "concurrently": "^5.3.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.10",
@@ -15,6 +16,7 @@
   },
   "scripts": {
     "dev": "npx nodemon",
-    "seed": "node db/seeds.js"
+    "seed": "node db/seeds.js",
+    "dev-fullstack": "concurrently \"yarn dev\" \"cd client && yarn start\""
   }
 }

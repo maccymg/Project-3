@@ -13,7 +13,7 @@ async function startServer() {
     console.log('Database has connected')
     app.use(express.json())
     app.use(logger)
-    app.use(router)
+    app.use('/api', router)
     app.use(errorHandler)
     app.listen(port, () => console.log(`🤖 Up and running on port ${port}`))
   } catch (err) {

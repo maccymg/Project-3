@@ -3,7 +3,7 @@ import { notFound, forbidden } from '../lib/errorHandler.js'
 
 async function teamIndex(_req, res, next) {
   try {
-    const players = await Team.find().populate('midfielders').populate('attackers').populate('defenders').populate('goalkeeper')
+    const players = await Team.find().populate('midfielders').populate('attackers').populate('defenders').populate('goalkeeper').populate('owner')
     return res.status(200).json(players)
   } catch (err) {
     next(err)
@@ -53,6 +53,12 @@ async function teamCommentCreate(req, res, next) {
     if (!team) throw new Error(notFound)
     const newComment = { ...req.body, owner: req.currentUser._id }
     team.comments.push(newComment)
+    // const comments = team.comments
+    // console.log(comments)
+    // const popComment = await Team.findById(id).populate('comments.owner')
+    // console.log(popComment)
+    // team.comment[comments.length - 1] = popComment
+    // console.log(popComment)
     await team.save()
     return res.status(201).json(team)
   } catch (err) {
