@@ -52,10 +52,14 @@ async function teamCommentCreate(req, res, next) {
     const team = await Team.findById(id)
     if (!team) throw new Error(notFound)
     const newComment = { ...req.body, owner: req.currentUser._id }
+    // team.comments.push(newComment)
+    const popComment = await Team.findById(newComment.id).populate('owner').populate('comments.owner')
+    console.log(popComment)
     team.comments.push(newComment)
+    // team.comments.push(popComment)
     // const comments = team.comments
     // console.log(comments)
-    // const popComment = await Team.findById(id).populate('comments.owner')
+    // const popComment = await Team.findById(id).populate('owner').populate('comments.owner')
     // console.log(popComment)
     // team.comment[comments.length - 1] = popComment
     // console.log(popComment)

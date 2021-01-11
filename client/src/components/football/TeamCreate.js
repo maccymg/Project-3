@@ -40,7 +40,7 @@ function TeamCreate() {
       selectOptions.push(option)
     })
     :
-    console.log('error')
+    console.log('loading')
 
 
 
