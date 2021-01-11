@@ -11,6 +11,12 @@ function Nav() {
         <div className="navbar-item">
           <Link to="/teams">Teams</Link>
         </div>
+        <div className="navbar-item">
+          <Link to="/register">Register</Link>
+        </div>
+        <div className="navbar-item">
+          <Link to="/login">Login</Link>
+        </div>
       </div>
     </div>
   )

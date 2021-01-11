@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav from '../common/Nav'
 import Select from 'react-select'
-import { getAllPlayers } from '../../lib/api'
+import { getAllPlayers, createTeam } from '../../lib/api'
 
 
 function TeamCreate() {
@@ -29,13 +29,13 @@ function TeamCreate() {
     players.map(player => {
       let value = ''
       let label = ''
-      if (player.second_name === player.web_name) {
-        value = `${player.first_name} ${player.second_name}`
-        label = `${player.first_name} ${player.second_name}`
-      } else {
-        value = `${player.web_name}`
-        label = `${player.web_name}`
-      }
+      // if (player.second_name === player.web_name) {
+      //   value = `${player.first_name} ${player.second_name}`
+      //   label = `${player.first_name} ${player.second_name}`
+      // } else {
+      value = `${player.web_name}`
+      label = `${player.web_name}`
+      // }
       const option = { value: value, label: label }
       selectOptions.push(option)
     })
@@ -45,7 +45,7 @@ function TeamCreate() {
 
 
   const [formdata, setFormdata] = React.useState({
-    name: '',
+    teamName: '',
     goalkeeper: '',
     playerTwo: '',
     playerThree: '',
@@ -59,28 +59,54 @@ function TeamCreate() {
     playerEleven: ''
   })
 
+  // const [idTeamdata, setIdTeamdata] = React.useState({
+  //   teamName: '',
+  //   goalkeeper: '',
+  //   defenders: [],
+  //   midfielders: [],
+  //   attackers: []
+  // })
+
   
   const handleChange = event => {
     const value = event.target.value
     setFormdata({ ...formdata, [event.target.name]: value })
   }
+
+  const handleSingleChange = (selected,name) => {
+    const value = selected ? selected.value : ''
+    handleChange({ target: { name, value } })
+  }
   
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault()
     window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
-    // console.log(teamdata)
     const teamData = {
+      name: formdata.teamName,
       goalkeeper: formdata.goalkeeper,
       defenders: [formdata.playerTwo, formdata.playerThree, formdata.playerFour, formdata.playerFive],
       midfielders: [formdata.playerSix, formdata.playerSeven, formdata.playerEight],
       attackers: [formdata.playerNine, formdata.playerTen, formdata.playerEleven]
     }
-    console.log(teamData)
-  }
-  
-  const handleSingleChange = (selected,name) => {
-    const value = selected ? selected.value : ''
-    handleChange({ target: { name, value } })
+
+    function findPlayerIdByName(name, players) {
+      return players.find(player => player.web_name === name)._id
+    }
+    const teamDataWithIds = {
+      ...teamData,
+      goalkeeper: findPlayerIdByName(teamData.goalkeeper, players),
+      defenders: teamData.defenders.map(name => findPlayerIdByName(name, players)),
+      midfielders: teamData.midfielders.map(name => findPlayerIdByName(name, players)),
+      attackers: teamData.attackers.map(name => findPlayerIdByName(name, players))
+    }
+    console.log(teamDataWithIds)
+    try { 
+      const { data } = await createTeam(teamDataWithIds)
+      console.log(data)
+      // history.push(`/teams/${data._id}`)
+    } catch (err) {
+      console.log(err)
+    }
   }
 
 
@@ -93,6 +119,15 @@ function TeamCreate() {
       </section>
       <form className="total-form" onSubmit={handleSubmit}>
         <section className="s-form">
+          <div>
+            <label>Team Name</label>
+            <input
+              className="team-name"
+              name="teamName"
+              value={formdata.teamName}
+              onChange={handleChange}
+            />
+          </div>
           <div className="position">
             <div className="shirt"></div>
             <label>GK</label>
