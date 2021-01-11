@@ -45,7 +45,8 @@ function TeamCreate() {
 
 
   const [formdata, setFormdata] = React.useState({
-    playerOne: '',
+    name: '',
+    goalkeeper: '',
     playerTwo: '',
     playerThree: '',
     playerFour: '',
@@ -58,26 +59,31 @@ function TeamCreate() {
     playerEleven: ''
   })
 
-  const [teamdata, setTeamdata] = React.useState({
-    teamArray: []
-  })
   
   const handleChange = event => {
     const value = event.target.value
     setFormdata({ ...formdata, [event.target.name]: value })
-    setTeamdata({ ...teamdata, [event.target.name]: value })
   }
   
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(teamdata)
     window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
+    // console.log(teamdata)
+    const teamData = {
+      goalkeeper: formdata.goalkeeper,
+      defenders: [formdata.playerTwo, formdata.playerThree, formdata.playerFour, formdata.playerFive],
+      midfielders: [formdata.playerSix, formdata.playerSeven, formdata.playerEight],
+      attackers: [formdata.playerNine, formdata.playerTen, formdata.playerEleven]
+    }
+    console.log(teamData)
   }
   
   const handleSingleChange = (selected,name) => {
     const value = selected ? selected.value : ''
     handleChange({ target: { name, value } })
   }
+
+
 
 
   return (
@@ -95,8 +101,8 @@ function TeamCreate() {
               options={selectOptions}
               label="Single select"
               defaultValue=''
-              name="playerOne"
-              onChange={(selected) => handleSingleChange(selected, 'playerOne')}
+              name="goalkeeper"
+              onChange={(selected) => handleSingleChange(selected, 'goalkeeper')}
             />
           </div>
         </section>
