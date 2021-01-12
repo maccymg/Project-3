@@ -69,17 +69,21 @@ function TeamShow() {
               <div>{team.goalkeeper.web_name}</div>
             </section>
           </div>
-          <div className="team-show-info">
-            <div>{team.name}</div>
-            <div>{team.owner.username}</div>
+          <div className="team-show-row-container">
+            <div className="team-show-name">
+              <p className="team-show-name-item">{team.name}</p>
+              <p>{`Owner: ${team.owner.username}`}</p>
+              <Link to={'/teams'}>Back to Teams</Link>
+            </div>
             {team.comments.map((comment, i) => 
               <div key={i}>
-                <p>{comment.text}</p>
-                <p>{comment.rating}</p>
-                <p>{comment.owner.username}</p>
+                <div className="team-show-row">
+                  <p className="team-show-row-item">{comment.text}</p>
+                  <p className="team-show-row-item">{comment.rating}</p>
+                  <p className="team-show-row-item">{comment.owner.username}</p>
+                </div>
               </div>
             )}
-            <Link to={'/teams'}>Back to Teams</Link>
           </div>
         </div>
         :
