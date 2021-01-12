@@ -1,6 +1,13 @@
 import axios from 'axios'
+import { getToken } from './auth'
 
 const baseUrl = '/api'
+
+export function headers() {
+  return {
+    headers: { Authorization: `Bearer ${getToken()}` }
+  }
+}
 
 export function getAllTeams() {
   return axios.get(`${baseUrl}/teams`)
@@ -15,7 +22,7 @@ export function getAllPlayers() {
 }
 
 export function createTeam(teamDataWithIds) {
-  return axios.post(`${baseUrl}/teams`, teamDataWithIds)
+  return axios.post(`${baseUrl}/teams`, teamDataWithIds, headers())
 }
 
 export function registerUser(formdata) {

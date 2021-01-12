@@ -19,6 +19,20 @@ function TeamIndex() {
   }, [])
   console.log(teams)
 
+  teams ?
+    teams.map((team, index) => {
+      let colorOption = ''
+      if ( index % 2 ) {
+        colorOption = 'even'
+        console.log(colorOption)
+      } else { 
+        colorOption = 'odd'
+        console.log(colorOption)
+      }
+    })
+    :
+    console.log('loading')
+
   return (
     <div>
       <Nav />

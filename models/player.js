@@ -7,6 +7,7 @@ const playerSchema = new mongoose.Schema({
   team: { type: Number, required: true },
   element_type: { type: Number, required: true },
   squad_number: { type: Number },
+  photo: { type: String },
 })
 
 export default mongoose.model('Player', playerSchema)

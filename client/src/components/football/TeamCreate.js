@@ -2,10 +2,11 @@ import React from 'react'
 import Nav from '../common/Nav'
 import Select from 'react-select'
 import { getAllPlayers, createTeam } from '../../lib/api'
+import { useHistory } from 'react-router-dom'
 
 
 function TeamCreate() {
-
+  const history = useHistory()
   const [players, setPlayers] = React.useState(null)
 
   React.useEffect(() => {
@@ -99,11 +100,12 @@ function TeamCreate() {
       midfielders: teamData.midfielders.map(name => findPlayerIdByName(name, players)),
       attackers: teamData.attackers.map(name => findPlayerIdByName(name, players))
     }
-    console.log(teamDataWithIds)
+    // setIdTeamdata(teamDataWithIds)
+    // console.log(idTeamdata)
     try { 
       const { data } = await createTeam(teamDataWithIds)
-      console.log(data)
-      // history.push(`/teams/${data._id}`)
+      // console.log(data)
+      history.push(`/teams/${data._id}`)
     } catch (err) {
       console.log(err)
     }

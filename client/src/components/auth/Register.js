@@ -17,10 +17,10 @@ function Register() {
   }
 
   const handleSubmit = async event => {
-    event.preventDefault
+    event.preventDefault()
     try {
       await registerUser(formdata)
-      history.pushState('/login')
+      history.push('/login')
     } catch (err) {
       console.log(err)
     }

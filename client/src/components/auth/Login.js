@@ -17,7 +17,7 @@ function Login() {
 
 
   const handleSubmit = async event => {
-    event.preventDefault
+    event.preventDefault()
     try {
       const { data } = await loginUser(formdata)
       setToken(data.token)
