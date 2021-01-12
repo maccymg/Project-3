@@ -1,7 +1,7 @@
 import React from 'react'
 import { getAllTeams } from '../../lib/api'
-import TeamTable from './TeamTable'
 import Nav from '../common/Nav'
+import { Link } from 'react-router-dom'
 
 function TeamIndex() {
   const [teams, setTeams] = React.useState(null)
@@ -19,27 +19,43 @@ function TeamIndex() {
   }, [])
   console.log(teams)
 
-  teams ?
-    teams.map((team, index) => {
-      let colorOption = ''
-      if ( index % 2 ) {
-        colorOption = 'even'
-        console.log(colorOption)
-      } else { 
-        colorOption = 'odd'
-        console.log(colorOption)
-      }
-    })
-    :
-    console.log('loading')
+  // const handleColorOptions = () => {
+  //   teams ?
+  //     teams.map((team, index) => {
+  //       let colorOption = ''
+  //       if ( index % 2 ) {
+  //         colorOption = 'even'
+  //         console.log(colorOption)
+  //       } else { 
+  //         colorOption = 'odd'
+  //         console.log(colorOption)
+  //       }
+  //     })
+  //     :
+  //     console.log('loading')
+  // }
+
 
   return (
-    <div>
-      <Nav />
-      <hr />
-      <div>
+    <div className="team-index-container">
+      <div className="s-nav">
+        <Nav />
+      </div>
+      <div className="team-row-container">
+        <div className="logo"></div>
+        <div className="search-bar">Search Bar</div>
         {teams && teams.map(team => (
-          <TeamTable key={team._id} {...team} />
+          <div key={team._id}>
+            {/* <div className={`"${handleColorOptions}"`}> */}
+            <div className="team-row">
+              <Link to={`/teams/${team._id}`} style={{ textDecoration: 'none', color: 'black' }}>
+                <div className="team-row-items">
+                  <p className="team-row-name">{team.name}</p>
+                  {/* <p className="team-row-owner">{team.owner.username}</p> */}
+                </div>
+              </Link>
+            </div>
+          </div>
         ))}
       </div>
     </div>

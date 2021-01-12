@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .main {
   flex-grow: 1;
   display: flex;
@@ -5,23 +9,23 @@
 
 .total-form {
   display: flex;
-  flex: 7;
+  flex: 14;
 }
 
 .s-nav {
-  flex: 1;
-  background: orange;
+  flex: 2;
+  background: rgb(158, 219, 255);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 1000px;
+  height: auto;
   border-left: 1px solid white;
   border-right: 1px solid white;
 }
 
 .s-form {
-  flex: 2;
+  flex: 3;
   background: green;
   display: flex;
   flex-direction: column;
@@ -30,12 +34,12 @@
   border-right: 1px solid white;
 }
 
-.navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-}
+// .navbar {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: space-between;
+// }
 
 .navbar-item {
   margin: 20px 0px 0px 0px;
@@ -73,4 +77,69 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+// .odd {
+// background-color: red;
+// }
+
+// .even {
+// background-color: yellow;
+// }
+
+.team-index-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+}
+
+.team-row-container {
+ display: flex;
+ flex: 14;
+ flex-direction: column;
+}
+
+.logo {
+  background-image: url("https://thesincuragroup.com/uup/Ea%20Sports%20Banner.jpg");
+  display: flex;
+  height: 150px;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-bar {
+  background-color: rgb(0, 255, 255);
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.team-row {
+  display: flex;
+  flex: 14;
+  background-color: rgb(0, 255, 255);
+  flex-direction: column;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  min-height: 60px;
+  max-height: 60px;
+}
+
+.team-row-items {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 60px;
+  max-height: 60px;
+  padding-left: 30px;
+}
+
+
+.team-row-name {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+
 }
