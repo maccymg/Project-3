@@ -19,41 +19,68 @@ function TeamShow() {
   }, [id])
 
   return (
-    <div>
+    <div className="team-show-container">
+      <div className ="logo">
+      </div>
       {team ?
-        <div>
-          <div>{team.name}</div>
-          <div>{team.owner.username}</div>
-          <div>Team:</div>
-          <hr />
-          <div>{team.goalkeeper.web_name}</div>
-          <hr />
-          {team.defenders.map((defender, i) =>
-            <div key={i}>
-              <p>{defender.web_name}</p>
-            </div>
-          )}
-          <hr />
-          {team.midfielders.map((midfielder, i) =>
-            <div key={i}>
-              <p>{midfielder.web_name}</p>
-            </div>
-          )}
-          <hr />
-          {team.attackers.map((attacker, i) =>
-            <div key={i}>
-              <p>{attacker.web_name}</p>
-            </div>
-          )}
-          <hr />
-          <div>Comments</div>
-          {team.comments.map((comment, i) => 
-            <div key={i}>
-              <p>{comment.text}</p>
-              <p>{comment.rating}</p>
-            </div>
-          )}
-          <Link to={'/teams'}>Back to Teams</Link>
+        <div className="team-show-main">
+          <div className="team-show-player">
+            <section className="team-show-player-section">
+              <div className="shirt-team-show"></div>
+              <div className="shirt-team-show"></div>
+              <div className="shirt-team-show"></div>
+            </section>
+            <section className="team-show-player-section">
+              {team.attackers.map((attacker, i) =>
+                <div key={i}>
+                  <p>{attacker.web_name}</p>
+                </div>
+              )}
+            </section>
+            <section className="team-show-player-section">
+              <div className="shirt-team-show"></div>
+              <div className="shirt-team-show"></div>
+              <div className="shirt-team-show"></div>
+            </section>
+            <section className="team-show-player-section">
+              {team.midfielders.map((midfielder, i) =>
+                <div key={i}>
+                  <p>{midfielder.web_name}</p>
+                </div>
+              )}
+            </section>
+            <section className="team-show-player-section">
+              <div className="shirt-team-show"></div>
+              <div className="shirt-team-show"></div>
+              <div className="shirt-team-show"></div>
+              <div className="shirt-team-show"></div>
+            </section>
+            <section className="team-show-player-section">
+              {team.defenders.map((defender, i) =>
+                <div key={i}>
+                  <p>{defender.web_name}</p>
+                </div>
+              )}
+            </section>
+            <section className="team-show-player-section">
+              <div className="shirt-team-show"></div>
+            </section>
+            <section className="team-show-player-section">
+              <div>{team.goalkeeper.web_name}</div>
+            </section>
+          </div>
+          <div className="team-show-info">
+            <div>{team.name}</div>
+            <div>{team.owner.username}</div>
+            {team.comments.map((comment, i) => 
+              <div key={i}>
+                <p>{comment.text}</p>
+                <p>{comment.rating}</p>
+                <p>{comment.owner.username}</p>
+              </div>
+            )}
+            <Link to={'/teams'}>Back to Teams</Link>
+          </div>
         </div>
         :
         <h1>{'...loading'}</h1>
