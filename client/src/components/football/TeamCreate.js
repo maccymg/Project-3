@@ -120,8 +120,8 @@ function TeamCreate() {
         <Nav />
       </section>
       <form className="total-form" onSubmit={handleSubmit}>
-        <section className="s-form">
-          <div>
+        <section className="first-form">
+          <div className="team-name-box">
             <label>Team Name</label>
             <input
               className="team-name"
@@ -130,7 +130,7 @@ function TeamCreate() {
               onChange={handleChange}
             />
           </div>
-          <div className="position">
+          <div className="goalkeeper-position">
             <div className="shirt"></div>
             <label>GK</label>
             <Select
@@ -244,7 +244,7 @@ function TeamCreate() {
               onChange={(selected) => handleSingleChange(selected, 'playerNine')}
             />
           </div>
-          <div className="position">
+          <div className="position-striker">
             <div className="shirt"></div>
             <label>ST</label>
             <Select

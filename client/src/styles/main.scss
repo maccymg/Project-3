@@ -1,16 +1,7 @@
 * {
   box-sizing: border-box;
 }
-
-.main {
-  flex-grow: 1;
-  display: flex;
-}
-
-.total-form {
-  display: flex;
-  flex: 14;
-}
+//* Nav
 
 .s-nav {
   flex: 2;
@@ -20,30 +11,45 @@
   align-items: center;
   justify-content: space-between;
   height: auto;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
 }
-
-.s-form {
-  flex: 3;
-  background: green;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-left: 1px solid white;
-  border-right: 1px solid white;
-}
-
-// .navbar {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   justify-content: space-between;
-// }
 
 .navbar-item {
   margin: 20px 0px 0px 0px;
 }
+
+//* Team Create
+
+.main {
+  flex-grow: 1;
+  display: flex;
+  // background-image: url("https://cdn.imgbin.com/18/13/6/imgbin-football-pitch-football-player-green-football-field-UkiAY7gahPuq6PzA5N88Ns9Yj.jpg");
+  // background-size: cover;
+}
+
+.total-form {
+  display: flex;
+  flex: 14;
+}
+
+.s-form {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: green;
+  border-left: 1px solid white;
+}
+
+.first-form {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: green;
+  border-left: 1px solid white;
+}
+
 
 .position {
   margin: 20px 0px 0px 0px;
@@ -51,15 +57,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 10px;
+}
+
+.position-striker {
+  margin: 20px 0px 0px 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 10px;
+  border: 1px solid white;
+  border-radius: 50%;
+}
+
+.goalkeeper-position {
+  margin: 20px 0px 0px 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 180px;
+  border-left: 2px solid white;
 }
 
 .shirt {
   background-image: url('./images/MarleyUpdatedJersey-1_1024x-removebg-preview.png');
   background-size: contain;
-  height: 80px;
-  width: 80px;
-  // display: flex;
-  // align-items: center;
+  height: 70px;
+  width: 70px;
 }
 
 .select {
@@ -73,19 +99,23 @@
 }
 
 .team-name {
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-// .odd {
-// background-color: red;
-// }
+.team-name-box {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+}
 
-// .even {
-// background-color: yellow;
-// }
+//* Team Index Page
 
 .team-index-container {
   display: flex;
@@ -115,8 +145,6 @@
   justify-content: center;
 }
 
-
-
 .team-row {
   display: flex;
   flex: 14;
@@ -141,5 +169,13 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: bold;
   font-size: 20px;
-
 }
+
+// .odd {
+// background-color: red;
+// }
+
+// .even {
+// background-color: yellow;
+// }
+
