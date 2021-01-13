@@ -6,6 +6,7 @@
 .s-nav {
   flex: 2;
   background: rgb(158, 219, 255);
+  border: 1px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,6 +16,15 @@
 
 .navbar-item {
   margin: 20px 0px 0px 0px;
+  font-weight: bold;
+}
+
+.navbar-item-login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 20px;
+  font-weight: bold;
 }
 
 //* Team Create
@@ -22,8 +32,6 @@
 .main {
   flex-grow: 1;
   display: flex;
-  // background-image: url("https://cdn.imgbin.com/18/13/6/imgbin-football-pitch-football-player-green-football-field-UkiAY7gahPuq6PzA5N88Ns9Yj.jpg");
-  // background-size: cover;
 }
 
 .total-form {
@@ -77,7 +85,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 180px;
+  margin-top: 165px;
   border-left: 2px solid white;
 }
 
@@ -171,13 +179,6 @@
   font-size: 20px;
 }
 
-// .odd {
-// background-color: red;
-// }
-
-// .even {
-// background-color: yellow;
-// }
 
 //* Team Show Page
 
@@ -237,21 +238,21 @@
   display: flex;
   flex: 1;
   background-color: rgb(0, 255, 255);
-  flex-direction: column;
-  border-bottom: 1px solid rgb(255, 255, 255);
-  min-height: 100px;
-  max-height: 100px;
-  padding-left: 30px;
-}
-
-.team-show-row-items {
-  display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap;
+  border-bottom: 1px solid rgb(255, 255, 255);
   min-height: 60px;
   max-height: 60px;
   padding-left: 30px;
 }
+
+.team-show-row-item {
+  display: flex;
+  justify-content: flex-start;
+  padding-right: 120px;
+}
+
 
 .team-show-name {
   background-color: rgb(0, 255, 255);
@@ -260,13 +261,121 @@
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
-  min-height: 60px;
+  min-height: 100px;
+}
+
+.team-show-name-input {
+  background-color: rgb(0, 255, 255);
+  border-bottom: 1px solid rgb(255, 255, 255);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  min-height: 130px;
+}
+
+.label-show {
+  font-size: 20px;
+}
+.input-show {
+  margin-top: 6px;
+  min-width: 18em;
+  height: 30px;
+  padding: 0px 10px;
+  font-size: 16px;
+  font-family: "Open Sans", sans-serif;
+  background-color: #f3f3f3;
+  border: 0;
+  border-radius: 4px;
+  margin-bottom: 2px;
+  transition: all 250ms ease-in-out;
+  &:hover {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 14px 0.3px #0e81ce96;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 12px 0.8px #3474dbb2;
+  }
 }
 
 .team-show-name-item {
   font-size: 20px;
   font-weight: bold;
 }
+
+.team-show-submit {
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+// .team-show-comments-container {
+
+// }
+
+//* register/ login
+
+.base-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .header {
+    font-size: 24px;
+    font-family: "Open Sans", sans-serif;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+
+    .form {
+      margin-top: 2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: fit-content;
+        .label {
+          font-size: 20px;
+        }
+        .input {
+          margin-top: 6px;
+          min-width: 18em;
+          height: 37px;
+          padding: 0px 10px;
+          font-size: 16px;
+          font-family: "Open Sans", sans-serif;
+          background-color: #f3f3f3;
+          border: 0;
+          border-radius: 4px;
+          margin-bottom: 31px;
+          transition: all 250ms ease-in-out;
+          &:hover {
+            background-color: #ffffff;
+            box-shadow: 0px 0px 14px 0.3px #0e81ce96;
+          }
+
+          &:focus {
+            outline: none;
+            box-shadow: 0px 0px 12px 0.8px #3474dbb2;
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    margin-top: 3em;
+  }
+}
+
 
 
 

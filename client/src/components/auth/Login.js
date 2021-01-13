@@ -28,38 +28,37 @@ function Login() {
   }
 
   return (
-    <section>
-      <div>
-        <div>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label>
-                <input
-                  className="form"
-                  placeholder="Email"
-                  onChange={handleChange}
-                  name="email"
-                  value={formdata.email}
-                />
-              </label>
-            </div>
-            <div>
-              <label>
-                <input
-                  type="password"
-                  className="form"
-                  placeholder="Password"
-                  onChange={handleChange}
-                  name="password"
-                  value={formdata.password}
-                />
-              </label>
-            </div>
-            <div>
-              <button type="submit">Log Me In</button>
-            </div>
-          </form>
-        </div>
+    <section className="base-container">
+      <div className="header">Login</div>
+      <div className="content">
+        <form onSubmit={handleSubmit} className="form">
+          <div className="form-group">
+            <label className="label">
+              <input
+                className="input"
+                placeholder="Email"
+                onChange={handleChange}
+                name="email"
+                value={formdata.email}
+              />
+            </label>
+          </div>
+          <div className="form-group">
+            <label className="label">
+              <input
+                type="password"
+                className="input"
+                placeholder="Password"
+                onChange={handleChange}
+                name="password"
+                value={formdata.password}
+              />
+            </label>
+          </div>
+          <div className="footer">
+            <button type="submit" className="btn">Log Me In</button>
+          </div>
+        </form>
       </div>
     </section>
   )

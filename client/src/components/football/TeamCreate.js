@@ -81,7 +81,7 @@ function TeamCreate() {
   
   const handleSubmit = async event => {
     event.preventDefault()
-    window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
+    // window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
     const teamData = {
       name: formdata.teamName,
       goalkeeper: formdata.goalkeeper,
@@ -122,7 +122,7 @@ function TeamCreate() {
       <form className="total-form" onSubmit={handleSubmit}>
         <section className="first-form">
           <div className="team-name-box">
-            <label>Team Name</label>
+            <label className="input">Team Name</label>
             <input
               className="team-name"
               name="teamName"

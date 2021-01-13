@@ -25,6 +25,10 @@ export function createTeam(teamDataWithIds) {
   return axios.post(`${baseUrl}/teams`, teamDataWithIds, headers())
 }
 
+export function teamCommentCreate({ id, formdata }) {
+  return axios.post(`${baseUrl}/teams/${id}/comments`, formdata, headers())
+}
+
 export function registerUser(formdata) {
   return axios.post(`${baseUrl}/register`, formdata)
 }
