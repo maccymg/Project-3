@@ -19,10 +19,15 @@ function Register() {
   const handleSubmit = async event => {
     event.preventDefault()
     try {
-      await registerUser(formdata)
-      history.push('/login')
+      if (formdata !== '') {
+        await registerUser(formdata)
+        history.push('/login')
+      } else {
+        throw new Error
+      }
     } catch (err) {
       console.log(err)
+      window.alert('Fill in the form correctly')
     }
   }
 

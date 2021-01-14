@@ -60,6 +60,7 @@ function TeamCreate() {
     playerEleven: ''
   })
 
+
   // const [idTeamdata, setIdTeamdata] = React.useState({
   //   teamName: '',
   //   goalkeeper: '',
@@ -78,36 +79,42 @@ function TeamCreate() {
     const value = selected ? selected.value : ''
     handleChange({ target: { name, value } })
   }
+
+  function findPlayerIdByName(name, players) {
+    return players.find(player => player.web_name === name)._id
+  }
   
   const handleSubmit = async event => {
     event.preventDefault()
-    // window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
-    const teamData = {
-      name: formdata.teamName,
-      goalkeeper: formdata.goalkeeper,
-      defenders: [formdata.playerTwo, formdata.playerThree, formdata.playerFour, formdata.playerFive],
-      midfielders: [formdata.playerSix, formdata.playerSeven, formdata.playerEight],
-      attackers: [formdata.playerNine, formdata.playerTen, formdata.playerEleven]
-    }
+    try {
+      if (formdata !== '') {
+      // window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
+        const teamData = {
+          name: formdata.teamName,
+          goalkeeper: formdata.goalkeeper,
+          defenders: [formdata.playerTwo, formdata.playerThree, formdata.playerFour, formdata.playerFive],
+          midfielders: [formdata.playerSix, formdata.playerSeven, formdata.playerEight],
+          attackers: [formdata.playerNine, formdata.playerTen, formdata.playerEleven]
+        }
 
-    function findPlayerIdByName(name, players) {
-      return players.find(player => player.web_name === name)._id
-    }
-    const teamDataWithIds = {
-      ...teamData,
-      goalkeeper: findPlayerIdByName(teamData.goalkeeper, players),
-      defenders: teamData.defenders.map(name => findPlayerIdByName(name, players)),
-      midfielders: teamData.midfielders.map(name => findPlayerIdByName(name, players)),
-      attackers: teamData.attackers.map(name => findPlayerIdByName(name, players))
-    }
-    // setIdTeamdata(teamDataWithIds)
-    // console.log(idTeamdata)
-    try { 
-      const { data } = await createTeam(teamDataWithIds)
-      // console.log(data)
-      history.push(`/teams/${data._id}`)
+        const teamDataWithIds = {
+          ...teamData,
+          goalkeeper: findPlayerIdByName(teamData.goalkeeper, players),
+          defenders: teamData.defenders.map(name => findPlayerIdByName(name, players)),
+          midfielders: teamData.midfielders.map(name => findPlayerIdByName(name, players)),
+          attackers: teamData.attackers.map(name => findPlayerIdByName(name, players))
+        }
+        // setIdTeamdata(teamDataWithIds)
+        // console.log(idTeamdata)
+        const { data } = await createTeam(teamDataWithIds)
+        // console.log(data)
+        history.push(`/teams/${data._id}`)
+      } else {
+        throw new Error
+      }
     } catch (err) {
       console.log(err)
+      window.alert('Missing select form/s, make sure you have filled out your team name!!')
     }
   }
 

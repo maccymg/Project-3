@@ -24,6 +24,7 @@ async function seedDatabase() {
 
     const players = await Player.create(playerData)
     console.log(`${players.length} players created`)
+    
 
     const teamsWithPlayers = teamData.map(team => {
       return {
@@ -35,10 +36,20 @@ async function seedDatabase() {
       }
     })
     const teamDataWithOwners = teamsWithPlayers.map(team => {
-      team.owner = users[0]._id
+      team.owner = users[Math.floor(Math.random() * users.length)]._id
       return team
     })
-    const teams = await Team.create(teamDataWithOwners)
+    const addCommentOwners = teamDataWithOwners.map(team => {
+      if (team.comments.length === 0) {
+        console.log('no comments')
+      } else {
+        team.comments.map(comment => {
+          comment.owner = users[Math.floor(Math.random() * users.length)]._id
+          return comment
+        })
+      }
+    })
+    const teams = await Team.create(teamDataWithOwners, addCommentOwners)
     console.log(`${teams.length} teams created`)
 
     await mongoose.connection.close()

@@ -249,8 +249,9 @@
 
 .team-show-row-item {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   padding-right: 120px;
+  flex: wrap;
 }
 
 

@@ -7,6 +7,11 @@ function TeamShow() {
   const [team, setTeam] = React.useState(null)
   const { id } = useParams()
 
+  const [formdata, setFormdata] = React.useState({
+    text: '',
+    rating: ''
+  })
+
   React.useEffect(() => {
     const getData = async () => {
       try {
@@ -17,12 +22,8 @@ function TeamShow() {
       }
     }
     getData()
-  }, [id])
+  }, [id, formdata])
 
-  const [formdata, setFormdata] = React.useState({
-    text: '',
-    rating: ''
-  })
 
   const handleChange = event => {
     setFormdata({ ...formdata, [event.target.name]: event.target.value })
@@ -31,11 +32,16 @@ function TeamShow() {
   const handleSubmit = async event => {
     event.preventDefault()
     try {
-      const { data } = await teamCommentCreate({ id, formdata })
-      console.log(data)
-      history.push(`/teams/${data._id}`)
+      if (formdata !== '') {
+        const { data } = await teamCommentCreate({ id, formdata })
+        console.log(data)
+        history.push(`/teams/${data._id}`)
+      } else {
+        throw new Error
+      }
     } catch (err) {
       console.log(err)
+      window.alert('Make sure you have filled out the form correctly')
     }
   }
 

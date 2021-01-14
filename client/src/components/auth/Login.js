@@ -19,11 +19,16 @@ function Login() {
   const handleSubmit = async event => {
     event.preventDefault()
     try {
-      const { data } = await loginUser(formdata)
-      setToken(data.token)
-      history.push('/teams/new')
+      if (formdata !== '') {
+        const { data } = await loginUser(formdata)
+        setToken(data.token)
+        history.push('/teams/new')
+      } else {
+        throw new Error
+      }
     } catch (err) {
       console.log(err)
+      window.alert('Fill in the form correctly')
     }
   }
 

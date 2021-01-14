@@ -23,6 +23,9 @@ function Nav() {
         <div className="navbar-item">
           <Link to="/teams" style={{ textDecoration: 'none', color: 'black' }}>Teams</Link>
         </div>
+        <div className="navbar-item">
+          <Link to="/players" style={{ textDecoration: 'none', color: 'black' }}>Players</Link>
+        </div>
         {!isLoggedIn ?
           <div className="navbar-item-login">
             <Link to="/register" style={{ textDecoration: 'none', color: 'black' }}>
