@@ -178,5 +178,47 @@ export default [
         rating: '84',
       }
     ],
+  },
+  {
+    name: 'UpNComing',
+    goalkeeper: 'Meslier',
+    defenders: [ 'Justin', 'Saliba', 'White', 'Lamptey' ],
+    midfielders: [ 'Foden', 'Guendouzi', 'Saka'],
+    attackers: [ 'Martinelli', 'Watkins', 'Greenwood' ],
+    comments: [
+      {
+        text: 'quality team',
+        rating: '87',
+      },
+      {
+        text: 'Lamptey is the goat',
+        rating: '86',
+      },
+      {
+        text: 'Guendouzi really?',
+        rating: '48',
+      }
+    ],
+  },
+  {
+    name: 'Horg2020/21',
+    goalkeeper: 'Martínez',
+    defenders: [ 'Tierney', 'Thiago Silva', 'Vestergaard', 'Lamptey' ],
+    midfielders: [ 'Thiago', 'Bissouma', 'Partey'],
+    attackers: [ 'Bowen', 'Kane', 'Vardy' ],
+    comments: [
+      {
+        text: 'so good defensively',
+        rating: '85',
+      },
+      {
+        text: 'yeh slightly lacking in attack tho',
+        rating: '72',
+      },
+      {
+        text: 'not sure about Vardy on the wing ',
+        rating: '63',
+      }
+    ],
   }
 ]
