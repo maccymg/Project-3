@@ -21,6 +21,10 @@ export function getAllPlayers() {
   return axios.get(`${baseUrl}/players`)
 }
 
+export function getSinglePlayer(id) {
+  return axios.get(`${baseUrl}/players/${id}`)
+}
+
 export function createTeam(teamDataWithIds) {
   return axios.post(`${baseUrl}/teams`, teamDataWithIds, headers())
 }

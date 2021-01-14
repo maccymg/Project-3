@@ -1,6 +1,7 @@
 import React from 'react'
 import { getAllPlayers } from '../../lib/api'
 import Nav from '../common/Nav'
+import { Link } from 'react-router-dom'
 
 function PlayerIndex() {
   const [players, setPlayers] = React.useState(null)
@@ -51,11 +52,13 @@ function PlayerIndex() {
         </div>
         {players && filteredPlayers.map(player => (
           <div key={player._id}>
-            <div className="team-row">
-              <div className="team-row-items">
-                <p className="team-row-name">{player.first_name} {player.second_name}</p>
+            <Link to={`/players/${player._id}`} style={{ textDecoration: 'none', color: 'black' }}>
+              <div className="team-row">
+                <div className="team-row-items">
+                  <p className="team-row-name">{player.first_name} {player.second_name}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           </div>
         ))}
       </div>
