@@ -61,7 +61,7 @@ function Login() {
             </label>
           </div>
           <div className="footer">
-            <button type="submit" className="btn">Log Me In</button>
+            <button type="submit" className="button">Log Me In</button>
           </div>
         </form>
       </div>

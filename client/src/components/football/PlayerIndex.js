@@ -6,11 +6,6 @@ function PlayerIndex() {
   const [players, setPlayers] = React.useState(null)
   const [formdata, setFormdata] = React.useState('')
 
-  const handleChange = event => {
-    const value = event.target.value
-    setFormdata(value)
-    console.log(formdata)
-  }
 
   React.useEffect(() => {
     const getData = async () => {
@@ -24,19 +19,15 @@ function PlayerIndex() {
     getData()
   }, [])
 
+  const filteredPlayers = players ? players.filter(player => (
+    player.web_name.toLowerCase().includes(formdata.toLowerCase()) || player.team.toLowerCase().includes(formdata.toLowerCase()) || player.first_name.toLowerCase().includes(formdata.toLowerCase()) || player.position.toLowerCase().includes(formdata.toLowerCase())
+  )) : null
 
-  // {players ?
-  //   players.filter(player => {
-  //     const truthy = player.web_name.toLowerCase().includes(formdata.toLowerCase())
-  //     if ( truthy ===  {
-  //       console.log(truthy)
-  //     } else {
-  //       return
-  //     }
-  //   })
-  //   :
-  //   console.log('loading players')
-  // }
+  const handleInput = event => {
+    const value = event.target.value
+    setFormdata(value)
+  }
+
 
 
   return (
@@ -53,13 +44,12 @@ function PlayerIndex() {
                 className="input-show"
                 placeholder="Search"
                 name="search"
-                onChange={handleChange}
-                value={formdata}
+                onChange={handleInput}
               />
             </label>
           </div>
         </div>
-        {players && players.map(player => (
+        {players && filteredPlayers.map(player => (
           <div key={player._id}>
             <div className="team-row">
               <div className="team-row-items">

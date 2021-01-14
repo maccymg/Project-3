@@ -1,9 +1,9 @@
 import React from 'react'
 import { getSingleTeam, teamCommentCreate } from '../../lib/api'
-import { useParams, Link, useHistory } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 
 function TeamShow() {
-  const history = useHistory()
+  // const history = useHistory()
   const [team, setTeam] = React.useState(null)
   const { id } = useParams()
 
@@ -35,7 +35,8 @@ function TeamShow() {
       if (formdata !== '') {
         const { data } = await teamCommentCreate({ id, formdata })
         console.log(data)
-        history.push(`/teams/${data._id}`)
+        setFormdata('')
+        // history.push(`/teams/${data._id}`)
       } else {
         throw new Error
       }
@@ -105,6 +106,7 @@ function TeamShow() {
             <div className="team-show-name-input">
               <form onSubmit={handleSubmit}>
                 <div>
+                  <p>Add a comment:</p>
                   <label className="label-show">
                     <input
                       className="input-show"
@@ -135,9 +137,15 @@ function TeamShow() {
               {team.comments.map((comment, i) => 
                 <div key={i}>
                   <div className="team-show-row">
-                    <div className="team-show-row-item">{comment.text}</div>
-                    <div className="team-show-row-item">{`Rating: ${comment.rating}`}</div>
-                    <div className="team-show-row-item">{comment.owner.username}</div>
+                    <div className="team-show-row-left">
+                      <div className="team-show-row-item-left">{comment.text}</div>
+                    </div>
+                    <div className="team-show-row-right">
+                      <div className="team-show-row-item-right">{comment.rating}</div>
+                    </div>
+                    {/* <div className="team-show-row-item">{comment.text}</div>
+                    <div className="team-show-row-item">{`Rating: ${comment.rating}`}</div> */}
+                    {/* <div className="team-show-row-item">{comment.owner.username}</div> */}
                   </div>
                 </div>
               )}

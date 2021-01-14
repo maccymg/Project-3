@@ -83,7 +83,7 @@ function Register() {
             </label>
           </div>
           <div className="footer">
-            <button type="submit" className="btn">Register Me</button>
+            <button type="submit" className="button">Register Me</button>
           </div>
         </form>
       </div>

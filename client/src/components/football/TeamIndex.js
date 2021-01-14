@@ -28,13 +28,13 @@ function TeamIndex() {
       </div>
       <div className="team-row-container">
         <div className="logo"></div>
-        <div className="search-bar">Search Bar</div>
+        <div className="teams-heading">Squads</div>
         {teams && teams.map(team => (
           <div key={team._id}>
             <div className="team-row">
               <Link to={`/teams/${team._id}`} style={{ textDecoration: 'none', color: 'black' }}>
                 <div className="team-row-items">
-                  <p className="team-row-name">{team.name}</p>
+                  <p className="team-row-name">{team.name}<span className="rating"> {`(${team.avgRating})`}</span></p>
                   {/* <p className="team-row-owner">{team.owner.username}</p> */}
                 </div>
               </Link>
