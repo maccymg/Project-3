@@ -11,6 +11,7 @@ function TeamShow() {
     text: '',
     rating: ''
   })
+  const [isError, setIsError] = React.useState(false)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -27,6 +28,7 @@ function TeamShow() {
 
   const handleChange = event => {
     setFormdata({ ...formdata, [event.target.name]: event.target.value })
+    setIsError(false)
   }
 
   const handleSubmit = async event => {
@@ -42,7 +44,7 @@ function TeamShow() {
       }
     } catch (err) {
       console.log(err)
-      window.alert('Make sure you have filled out the form correctly')
+      setIsError(true)
     }
   }
 
@@ -131,6 +133,7 @@ function TeamShow() {
                 <div className="team-show-submit">
                   <button type="submit">Submit</button>
                 </div>
+                {isError && <p>Are u logged in and are the forms correct?</p>}
               </form>
             </div>
             <div className="team-show-comments-container">

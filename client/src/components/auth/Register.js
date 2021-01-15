@@ -11,9 +11,11 @@ function Register() {
     password: '',
     passwordConfirmation: ''
   })
+  const [isError, setIsError] = React.useState(false)
 
   const handleChange = event => {
     setFormdata({ ...formdata, [event.target.name]: event.target.value })
+    setIsError(false)
   }
 
   const handleSubmit = async event => {
@@ -27,7 +29,7 @@ function Register() {
       }
     } catch (err) {
       console.log(err)
-      window.alert('Fill in the form correctly')
+      setIsError(true)
     }
   }
 
@@ -85,6 +87,7 @@ function Register() {
           <div className="footer">
             <button type="submit" className="button">Register Me</button>
           </div>
+          {isError && <p>Check your forms are correct?</p>}
         </form>
       </div>
     </section>

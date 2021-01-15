@@ -220,5 +220,22 @@ export default [
         rating: '63',
       }
     ],
+  },
+  {
+    name: 'Everton/Wolves',
+    goalkeeper: 'Patrício',
+    defenders: [ 'Digne', 'Keane', 'Saïss', 'Semedo' ],
+    midfielders: [ 'Moutinho', 'Allan', 'Rodríguez'],
+    attackers: [ 'Podence', 'Jiménez', 'Calvert-Lewin' ],
+    comments: [
+      {
+        text: 'see ya',
+        rating: '77',
+      },
+      {
+        text: 'Ricky-arlison???',
+        rating: '65',
+      }
+    ],
   }
 ]

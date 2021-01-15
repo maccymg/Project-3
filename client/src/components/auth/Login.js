@@ -10,9 +10,11 @@ function Login() {
     email: '',
     password: ''
   })
+  const [isError, setIsError] = React.useState(false)
 
   const handleChange = event => {
     setFormdata({ ...formdata, [event.target.name]: event.target.value })
+    setIsError(false)
   }
 
 
@@ -28,7 +30,7 @@ function Login() {
       }
     } catch (err) {
       console.log(err)
-      window.alert('Fill in the form correctly')
+      setIsError(true)
     }
   }
 
@@ -63,6 +65,7 @@ function Login() {
           <div className="footer">
             <button type="submit" className="button">Log Me In</button>
           </div>
+          {isError && <p>Check your forms are correct, have u registered?</p>}
         </form>
       </div>
     </section>

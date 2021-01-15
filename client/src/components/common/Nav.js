@@ -18,6 +18,9 @@ function Nav() {
     <div>
       <div className="navbar">
         <div className="navbar-item">
+          <Link to="/" style={{ textDecoration: 'none', color: 'Purple' }}>Home</Link>
+        </div>
+        <div className="navbar-item">
           <Link to="/teams/new" style={{ textDecoration: 'none', color: 'green' }}>Create Team</Link>
         </div>
         <div className="navbar-item">

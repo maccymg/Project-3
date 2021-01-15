@@ -8,6 +8,7 @@ import { useHistory } from 'react-router-dom'
 function TeamCreate() {
   const history = useHistory()
   const [players, setPlayers] = React.useState(null)
+  const [isError, setIsError] = React.useState(false)
 
   React.useEffect(() => {
     const getData = async () => {
@@ -73,6 +74,7 @@ function TeamCreate() {
   const handleChange = event => {
     const value = event.target.value
     setFormdata({ ...formdata, [event.target.name]: value })
+    setIsError(false)
   }
 
   const handleSingleChange = (selected,name) => {
@@ -81,7 +83,11 @@ function TeamCreate() {
   }
 
   function findPlayerIdByName(name, players) {
-    return players.find(player => player.web_name === name)._id
+    if (!name) {
+      return null
+    } else {
+      return players.find(player => player.web_name === name)._id
+    }
   }
   
   const handleSubmit = async event => {
@@ -114,7 +120,7 @@ function TeamCreate() {
       }
     } catch (err) {
       console.log(err)
-      window.alert('Missing select form/s, make sure you have filled out your team name!!')
+      setIsError(true)
     }
   }
 
@@ -278,6 +284,7 @@ function TeamCreate() {
           <div className="submit">
             <button type="submit">Submit</button>
           </div>
+          {isError && <p>Please Make sure youve filled out all the players including the team name and that youre logged in!!</p>}
         </section>
       </form>
     </div>
