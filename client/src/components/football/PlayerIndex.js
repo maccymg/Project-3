@@ -21,7 +21,7 @@ function PlayerIndex() {
   }, [])
 
   const filteredPlayers = players ? players.filter(player => (
-    player.web_name.toLowerCase().includes(formdata.toLowerCase()) || player.team.toLowerCase().includes(formdata.toLowerCase()) || player.first_name.toLowerCase().includes(formdata.toLowerCase()) || player.position.toLowerCase().includes(formdata.toLowerCase())
+    player.webName.toLowerCase().includes(formdata.toLowerCase()) || player.team.toLowerCase().includes(formdata.toLowerCase()) || player.firstName.toLowerCase().includes(formdata.toLowerCase()) || player.position.toLowerCase().includes(formdata.toLowerCase())
   )) : null
 
   const handleInput = event => {
@@ -55,7 +55,7 @@ function PlayerIndex() {
             <Link to={`/players/${player._id}`} style={{ textDecoration: 'none', color: 'black' }}>
               <div className="team-row">
                 <div className="team-row-items">
-                  <p className="team-row-name">{player.first_name} {player.second_name}</p>
+                  <p className="team-row-name">{player.firstName} {player.secondName}</p>
                 </div>
               </div>
             </Link>

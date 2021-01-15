@@ -8,7 +8,7 @@ import User from '../models/user.js'
 import userData from './data/users.js'
 
 function findPlayerIdByName(name, players) {
-  return players.find(player => player.web_name === name)._id
+  return players.find(player => player.webName === name)._id
 }
 
 async function seedDatabase() {

@@ -63,7 +63,7 @@ function TeamShow() {
             <section className="team-show-player-section">
               {team.attackers.map((attacker, i) =>
                 <div key={i}>
-                  <p>{attacker.web_name}</p>
+                  <p>{attacker.webName}</p>
                 </div>
               )}
             </section>
@@ -75,7 +75,7 @@ function TeamShow() {
             <section className="team-show-player-section">
               {team.midfielders.map((midfielder, i) =>
                 <div key={i}>
-                  <p>{midfielder.web_name}</p>
+                  <p>{midfielder.webName}</p>
                 </div>
               )}
             </section>
@@ -88,7 +88,7 @@ function TeamShow() {
             <section className="team-show-player-section">
               {team.defenders.map((defender, i) =>
                 <div key={i}>
-                  <p>{defender.web_name}</p>
+                  <p>{defender.webName}</p>
                 </div>
               )}
             </section>
@@ -96,7 +96,7 @@ function TeamShow() {
               <div className="shirt-team-show-goalkeeper"></div>
             </section>
             <section className="team-show-player-section">
-              <div>{team.goalkeeper.web_name}</div>
+              <div>{team.goalkeeper.webName}</div>
             </section>
           </div>
           <div className="team-show-row-container">

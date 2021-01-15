@@ -31,14 +31,14 @@ function PlayerShow() {
           </div>
           <div className="player-show-row-container">
             <div className="player-show-team">
-              <div className="player-show-player-name">{player.first_name} {player.second_name}</div>
+              <div className="player-show-player-name">{player.firstName} {player.secondName}</div>
             </div>
             <div className="team-show-comments-container">
               <div className="player-show-row">
                 <div>{`Team: ${player.team}`}</div>
               </div>
               <div className="player-show-row">
-                <div>{`Known As: ${player.web_name}`}</div>
+                <div>{`Known As: ${player.webName}`}</div>
               </div>
               <div className="player-show-row">
                 <div>{player.position}</div>

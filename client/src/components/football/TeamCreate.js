@@ -31,12 +31,12 @@ function TeamCreate() {
     players.map(player => {
       let value = ''
       let label = ''
-      // if (player.second_name === player.web_name) {
-      //   value = `${player.first_name} ${player.second_name}`
-      //   label = `${player.first_name} ${player.second_name}`
+      // if (player.secondName === player.webName) {
+      //   value = `${player.firstName} ${player.secondName}`
+      //   label = `${player.firstName} ${player.secondName}`
       // } else {
-      value = `${player.web_name}`
-      label = `${player.web_name}`
+      value = `${player.webName}`
+      label = `${player.webName}`
       // }
       const option = { value: value, label: label }
       selectOptions.push(option)
@@ -86,7 +86,7 @@ function TeamCreate() {
     if (!name) {
       return null
     } else {
-      return players.find(player => player.web_name === name)._id
+      return players.find(player => player.webName === name)._id
     }
   }
   
