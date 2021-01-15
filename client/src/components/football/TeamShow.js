@@ -91,7 +91,7 @@ function TeamShow() {
               )}
             </section>
             <section className="team-show-player-section">
-              <div className="shirt-team-show"></div>
+              <div className="shirt-team-show-goalkeeper"></div>
             </section>
             <section className="team-show-player-section">
               <div>{team.goalkeeper.web_name}</div>

@@ -138,7 +138,7 @@ function TeamCreate() {
             />
           </div>
           <div className="goalkeeper-position">
-            <div className="shirt"></div>
+            <div className="goalkeeper-shirt"></div>
             <label>GK</label>
             <Select
               className="select"

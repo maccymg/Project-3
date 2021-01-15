@@ -107,6 +107,14 @@
   width: 70px;
 }
 
+.goalkeeper-shirt {
+  background-image: url('./images/images-removebg-preview.png');
+  background-size: cover;
+  margin-bottom: 5px;
+  height: 70px;
+  width: 70px;
+}
+
 .select {
   width: 140px;
 }
@@ -251,6 +259,14 @@
 .shirt-team-show {
   background-image: url('./images/MarleyUpdatedJersey-1_1024x-removebg-preview.png');
   background-size: contain;
+  height: 50px;
+  width: 50px;
+  margin-top: 10px;
+}
+
+.shirt-team-show-goalkeeper {
+  background-image: url('./images/images-removebg-preview.png');
+  background-size: cover;
   height: 50px;
   width: 50px;
   margin-top: 10px;
