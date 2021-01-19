@@ -1,0 +1,51 @@
+# sei-project-4
+Group Project Repo
+
+
+In this project I was tasked with building a MERN Stack APP.
+
+ - MongoDB was used to create the database for the project and this was aided through the use of insomnia to easily access the information and to help with requests and responses.
+
+ - Express was used to provide the basic features for developing a web app in Node.js.
+
+ - React was used to handle the client-side Javascript famework making it easier for mulity page applications.
+
+ - Node was used to execute Javascript outside of the browser on the server side.
+
+
+general approach you took:
+
+Upon being set this task I began thinking of somthing to build. As a football fan the ability to build and rate teams as well as being able to rate players peformances seemed like a good idea for this project. After drawing out a plan of everything I would need I started on the backend.
+
+ Getting this fully set up and working before starting on the front end seemed the sensable option. After setting up the server and conneting to my mongo database I began to create my player and team schemas. After this I set about creating the stucture for my incoming requests. Having done this and added a logger to make these requests more readible I set up my seeds so that I could pre populate my app with teams and players. This led to difficulites seeding team data with player ids that changed as well and later owners but I was able to work throught them.I managed to find data on all of the premier lague footballers and managed to cut this down to fit my own needs for how I wanted my data to be stuctured. I then moved out controllers into thier own file and set up the error handling. I then set about creating a user model and dealing with login/ register requests as well as adding the user model to the team model and dealing with validating a user, making passwords cryptic, and dealing with web tokens. After finsihing this I added the stucture for displaying and receiving comments. After this I was able to begin on my front end.
+
+Having initially been concerned for time I wanted to get the main functionality of the app down. It came apparent that rating individual players each time you submit wasn't key to the fucntionality so I decided to leave this to the end. I installed React-select which I used to handle the users request to create a team. Having set this up and creating the team index page I then set about creating the team show page. I then managed to crack the team seeding and was able to pre populate teams and comments. Having made good time I decided to go back and add an average rating schema to the team model. I then made the login and register pages and set about doing error handling on the front end. I then decided to add a players index page as I had time and was able to add a search bar to it and with it a player show page. I then as time was nearing the end created a home page and did final css improvements.
+
+The approach I took getting everything working in the backend first was very beneficial as it saved me running into extra problems in the front-end. As I did this project solo I just didn't have the time to take the idea to its fullest and still had lots of things to add in the future as I explain bellow. 
+
+Installation instructions for any dependencies:
+
+In the root of the project yarn add: 
+bcrypt 
+concurrently
+express
+jsonwebtoken
+mongoose
+mongoose-unique-validator
+
+In the client folder, yarn add:
+
+axios
+node-sass
+react
+react-dom
+react-router-dom
+react-select 
+
+
+Descriptions of any unsolved problems or major hurdles you had to overcome
+
+Major hurdles that were overcome where seeding teams from player ids that change every time you seed as well as requiring owners that were also seeded. Managing to combine many select box's into the data stucture of the team model as well as handling errors from empty submits which would need to be improved given more time. Styling without the help of a css framwork was also good practice.
+
+In terms of unsovlved problems there was lots that I could have added if I had more time. The ablilty to create players from the past or make them up is simple functionality that could add to the enjoyment of the app. Having more complex user relationships with messaging so you could have friends and groups and be able to post teams to sepcific users. Being able to rate players rather than teams so that you can rate lineups and player performances from real life. Perhaps access a live scores API to give users up to date scores and football news. All these would add to the complexity and enjoyment of the app. 
+
