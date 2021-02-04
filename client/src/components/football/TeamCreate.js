@@ -31,13 +31,8 @@ function TeamCreate() {
     players.map(player => {
       let value = ''
       let label = ''
-      // if (player.secondName === player.webName) {
-      //   value = `${player.firstName} ${player.secondName}`
-      //   label = `${player.firstName} ${player.secondName}`
-      // } else {
       value = `${player.webName}`
       label = `${player.webName}`
-      // }
       const option = { value: value, label: label }
       selectOptions.push(option)
     })
@@ -61,14 +56,6 @@ function TeamCreate() {
     playerEleven: ''
   })
 
-
-  // const [idTeamdata, setIdTeamdata] = React.useState({
-  //   teamName: '',
-  //   goalkeeper: '',
-  //   defenders: [],
-  //   midfielders: [],
-  //   attackers: []
-  // })
 
   
   const handleChange = event => {
