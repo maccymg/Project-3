@@ -2,7 +2,7 @@
 Group Project Repo
 
 
-In this project I was tasked with building a MERN Stack APP.
+In this project I was tasked with building a MERN Stack APP. (1 Week)
 
  - MongoDB was used to create the database for the project and this was aided through the use of insomnia to easily access the information and to help with requests and responses.
 
