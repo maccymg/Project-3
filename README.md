@@ -1,2 +1,1 @@
-# sei-project-4
-Group Project Repo
+### head to branch development for code and readme
