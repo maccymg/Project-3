@@ -81,7 +81,6 @@ function TeamCreate() {
     event.preventDefault()
     try {
       if (formdata !== '') {
-      // window.alert(`Submitting ${JSON.stringify(formdata, null, 2)}`)
         const teamData = {
           name: formdata.teamName,
           goalkeeper: formdata.goalkeeper,
@@ -97,10 +96,7 @@ function TeamCreate() {
           midfielders: teamData.midfielders.map(name => findPlayerIdByName(name, players)),
           attackers: teamData.attackers.map(name => findPlayerIdByName(name, players))
         }
-        // setIdTeamdata(teamDataWithIds)
-        // console.log(idTeamdata)
         const { data } = await createTeam(teamDataWithIds)
-        // console.log(data)
         history.push(`/teams/${data._id}`)
       } else {
         throw new Error
