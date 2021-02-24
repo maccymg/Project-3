@@ -12,7 +12,7 @@ In this project I was tasked with building a MERN Stack APP.
 
  - Node was used to execute JavaScript outside of the browser on the server side.
 
-![Picture](./app-pictures/create-team.png)
+![Picture](create-team.png)
 
 URL - https://bit.ly/3pqre2H
 
