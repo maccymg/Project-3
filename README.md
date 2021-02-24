@@ -67,6 +67,7 @@ Having initially been concerned for time I wanted to get the main functionality 
 
 ```JavaScript
 // team submit logic
+
 const handleSubmit = async event => {
     event.preventDefault()
     try {
