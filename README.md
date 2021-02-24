@@ -35,7 +35,7 @@ In the client folder, yarn add:
 - react-router-dom
 - react-select 
 
-## General approach took:
+## General approach taken:
 
 Upon being set this task I began thinking of something to build. As a football fan the ability to build and rate teams as well as being able to rate players performances seemed like a good idea for this project. After drawing out a plan of everything I would need I started on the backend.
 
@@ -106,4 +106,8 @@ The approach I took getting everything working in the backend first was very ben
 
 Major hurdles that were overcome where seeding teams from player ids that change every time you seed as well as requiring owners that were also seeded. Managing to combine many select box's into the data stucture of the team model as well as handling errors from empty submits which would need to be improved given more time. Styling without the help of a css framwork was also good practice.
 
-In terms of unsovlved problems there was lots that I could have added if I had more time. The ablilty to create players from the past or make them up is simple functionality that could add to the enjoyment of the app. Having more complex user relationships with messaging so you could have friends and groups and be able to post teams to sepcific users. Being able to rate players rather than teams so that you can rate lineups and player performances from real life. Perhaps access a live scores API to give users up to date scores and football news. All these would add to the complexity and enjoyment of the app. 
+In terms of unsovlved problems there was lots that I could have added if I had more time. The ablilty to create players from the past or make them up is simple functionality that could add to the enjoyment of the app. Having more complex user relationships with messaging so you could have friends and groups and be able to post teams to sepcific users. Being able to rate players rather than teams so that you can rate lineups and player performances from real life. Perhaps access a live scores API to give users up to date scores and football news. All these would add to the complexity and enjoyment of the app.
+
+### Key Learning
+
+Key learning included the request responce cycle, models, databasing, error handling, authorization and using forms and formdata.
