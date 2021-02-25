@@ -110,7 +110,7 @@ In terms of unsovlved problems there was lots that I could have added if I had m
 
 ### Wins
 
-Wins included enhancing my confidence with React.
+Wins included creating my first fullstack application and becoming more confident with React.
 
 ### Key Learning
 
